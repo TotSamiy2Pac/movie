@@ -1,0 +1,57 @@
+/*.slide {*/
+/*    max-width: 1240px;*/
+/*}*/
+
+.mySwiper {
+    height: 500px;
+}
+
+.box-slide {
+    height: 500px;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+}
+
+.box-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+    opacity: 0.4;
+}
+
+.description-slide {
+    transition: 1s;
+    bottom: -150px;
+    left: 60px;
+    font-family: 'Aleo', serif;
+    max-width: 80%;
+    position: absolute;
+    font-size: 18px;
+    color: white;
+}
+
+.box-slide:hover .description-slide{
+    left: 60px;
+    right: 60px;
+    bottom: 50px;
+}
+
+.title-slide {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .3s ease;
+    z-index: 1;
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    font-size: 24px;
+    font-family: 'Aleo', serif;
+}
+p{
+    margin: 0;
+}
+

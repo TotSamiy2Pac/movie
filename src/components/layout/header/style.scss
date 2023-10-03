@@ -1,0 +1,70 @@
+header {
+  padding: 20px 0;
+  & .wrapper {
+      display: flex;
+        justify-content: space-between;
+      align-items: center;
+    & .__nav {
+        display: flex;
+        gap: 20px;
+        & .__link {
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .93px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color .3s ease;
+        }
+        & .__link:hover {
+          color: #21a4f7;
+        }
+    }
+    & .__search-box {
+      display: flex;
+      & .__input::placeholder{
+        color: #fff;
+        font-size: 12px;
+      }
+      & .__input{
+        border: 2px solid #f55376;
+        border-radius: 5px 0 0 5px;
+        padding: 5px;
+        background: transparent;
+        color: #fff;
+      }
+      & .__btn {
+        border: none;
+        border-radius: 0 5px 5px 0;
+        background: #f55376;
+        cursor: pointer;
+      }
+      & .__btn:active {
+        background: #ea5d7a;
+      }
+    }
+
+    & .__user-box {
+      & .__btn-sign-in {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .93px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color .3s ease;
+        & .__icon {
+          color: #fff;
+        }
+      }
+        & .__btn-sign-in:hover {
+            color: #21a4f7;
+        }
+    }
+  }
+}

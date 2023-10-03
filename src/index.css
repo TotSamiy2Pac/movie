@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #141414;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 0 auto;
+}
+input {
+  outline: none;
+}
+input:hover {
+  outline: none;
+}
+
+
+/* Стилизация основного скролл-бара */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Стилизация ползунка скролл-бара */
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0deg 0% 37.65%);
+  border-radius: 5px;
+  height: 30px;
+
+}
+
