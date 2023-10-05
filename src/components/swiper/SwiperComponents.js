@@ -1,9 +1,7 @@
-import React, {useEffect, useReducer} from 'react';
-import { useRef, useState } from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -18,8 +16,6 @@ const SwiperComponents = () => {
     useEffect(() => {
         dispatch(getPopularMovies())
     },[])
-
-    // console.log(popularMovies)
 
     return (
         <>

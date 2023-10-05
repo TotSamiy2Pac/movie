@@ -1,17 +1,18 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {getListGenres} from "../../redux/action/moviesAction";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Dropdown = ({genres,rating,ears}) => {
     const dropdownRef = useRef(null);
     const dispatch = useDispatch()
+    const [isOpen, setIsOpen] = useState(false);
+    const discover = useSelector(state => state.discoverReducer.discover)
 
     useEffect(() => {
         dispatch(getListGenres())
     },[])
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+
     // Обработчик клика вне блока
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -22,7 +23,6 @@ const Dropdown = ({genres,rating,ears}) => {
     // Добавление слушателя события при монтировании компонента
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
-        console.log('add listener')
         return () => {
             // Удаление слушателя события при размонтировании компонента
             document.removeEventListener('click', handleClickOutside);
@@ -33,23 +33,30 @@ const Dropdown = ({genres,rating,ears}) => {
         setIsOpen(!isOpen);
     };
 
-    const handleOptionClick = (option) => {
-        setSelectedOption(option);
+    const handleOptionClick = (option, id) => {
+        if (id === 1) {
+            dispatch({type: 'DISCOVER', payload: {...discover, genre: option}})
+        } else if (id===2) {
+            dispatch({type: 'DISCOVER', payload: {...discover, rating: typeof option === "number" ? option : 'Любой рейтинг'}})
+        } else if (id===3) {
+            dispatch({type: 'DISCOVER', payload: {...discover, year: typeof option === "number" ? option : 'Все годы'}})
+        }
         setIsOpen(false);
     };
+
     return (
         <>
             {genres &&
                 <div ref={dropdownRef} className="dropdown" onClick={toggleDropdown}>
                     <div className="dropdown-toggle" >
-                        {selectedOption || 'Все жанры'}
+                        {discover.genre.name}
                     </div>
                     {isOpen && (
                         <div className={isOpen ? 'dropdown-content dropdown-click' : "dropdown-content"}>
                             <div
                                 key={rating}
                                 className="dropdown-item"
-                                onClick={() => handleOptionClick('все жанры')}
+                                onClick={() => handleOptionClick({id:0, name:'все жанры'}, 1)}
                             >
                                 Все жанры
                             </div>
@@ -57,7 +64,9 @@ const Dropdown = ({genres,rating,ears}) => {
                                 <div
                                     key={index}
                                     className="dropdown-item"
-                                    onClick={() => handleOptionClick(genre.name)}
+                                    onClick={(e) => {
+                                        handleOptionClick(genre, 1)
+                                    }}
                                 >
                                     {genre.name}
                                 </div>
@@ -73,14 +82,17 @@ const Dropdown = ({genres,rating,ears}) => {
             {rating &&
                 <div ref={dropdownRef} className="dropdown" onClick={toggleDropdown}>
                     <div className="dropdown-toggle" >
-                        {selectedOption || 'любой рейтинг'}
+                        {typeof discover.rating === "number" ?
+                            `больше ${discover.rating}` :
+                            discover.rating
+                        }
                     </div>
                     {isOpen && (
                         <div className={isOpen ? 'dropdown-content dropdown-click' : "dropdown-content"}>
                             <div
                                 key={rating}
                                 className="dropdown-item"
-                                onClick={() => handleOptionClick('любой рейтинг')}
+                                onClick={() => handleOptionClick('любой рейтинг', 2)}
                             >
                                 любой рейтинг
                             </div>
@@ -89,7 +101,7 @@ const Dropdown = ({genres,rating,ears}) => {
                                         <div
                                             key={rate}
                                             className="dropdown-item"
-                                            onClick={() => handleOptionClick(`больше ${rate}`)}
+                                            onClick={() => handleOptionClick(rate, 2)}
                                         >
                                             больше {rate}
                                         </div>
@@ -107,14 +119,14 @@ const Dropdown = ({genres,rating,ears}) => {
             {ears &&
                 <div ref={dropdownRef} className="dropdown" onClick={toggleDropdown}>
                     <div className="dropdown-toggle" >
-                        {selectedOption || 'любой год'}
+                        {discover.year}
                     </div>
                     {isOpen && (
                         <div className={isOpen ? 'dropdown-content dropdown-click' : "dropdown-content"}>
                             <div
                                 key={ears}
                                 className="dropdown-item"
-                                onClick={() => handleOptionClick('любой год')}
+                                onClick={() => handleOptionClick('Все годы', 3)}
                             >
                                 любой год
                             </div>
@@ -123,7 +135,7 @@ const Dropdown = ({genres,rating,ears}) => {
                                         <div
                                             key={ear}
                                             className="dropdown-item"
-                                            onClick={() => handleOptionClick(ear)}
+                                            onClick={() => handleOptionClick(ear, 3)}
                                         >
                                             {ear}
                                         </div>

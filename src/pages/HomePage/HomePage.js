@@ -3,22 +3,18 @@ import {useDispatch, useSelector} from "react-redux";
 import Layout from "../../components/layout/Layout";
 import SwiperComponents from "../../components/swiper/SwiperComponents";
 import './style.scss'
-import {getListGenres} from "../../redux/action/moviesAction";
 import Dropdown from "../../components/homepage/dropdown";
 
 const HomePage = () => {
     const genres = useSelector(state => state.moviesReducer.genres)
-    const [choise, setChoise] = React.useState(1)
+    const [choise, setChoise] = useState(1)
     const rating = [9,8,7,6,5,4,3,2]
     const ears = []
-
     useEffect(() => {
         for (let i = 2024; i > 1915; i--){
             ears.push(i)
         }
     },[ears])
-
-    console.log(ears)
 
     return (
         <Layout>
