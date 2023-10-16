@@ -4,12 +4,20 @@ import {Link} from "react-router-dom";
 import './style.scss'
 import {Button} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {useDispatch} from "react-redux";
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const clearDiscover = () => {
+        dispatch({type: 'CLEAR'})
+    }
+
     return (
         <header>
             <div className="wrapper">
-                <img src={logo} alt="logo-netflix-pet"/>
+                <Link to={'/'} onClick={clearDiscover}>
+                    <img src={logo} alt="logo-netflix-pet"/>
+                </Link>
                 <nav className={'__nav'}>
                     <Link to={''} className={'__link'}>СЕРИАЛЫ</Link>
                     <Link to={''} className={'__link'}>ФИЛЬМЫ</Link>

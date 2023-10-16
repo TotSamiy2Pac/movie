@@ -1,4 +1,4 @@
-import {DISCOVER, GET_LIST_GENRES, GET_MOVIES, SWIPER_MOVIES} from "../types/types";
+import { GET_LIST_GENRES, GET_MOVIES, SWIPER_MOVIES} from "../types/types";
 
 
 const initialState = {
@@ -14,8 +14,6 @@ export default function  moviesReducer (state = initialState, action) {
             return {...state, popularMovies: action.payload}
         case GET_LIST_GENRES:
             return {...state, genres: action.payload}
-        case DISCOVER:
-            return {...state, discover: action.payload}
         default:
             return state
     }

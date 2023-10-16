@@ -5,12 +5,14 @@ import moviesReducer from "./reducer/moviesReducer";
 import discoverReducer from "./reducer/discoverReducer";
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import resultDiscoverReducer from "./reducer/resultDiscoverReducer";
 
 
 
 const rootReducer = combineReducers({
         moviesReducer : moviesReducer,
-        discoverReducer : discoverReducer
+        discoverReducer : discoverReducer,
+        resultDiscoverReducer : resultDiscoverReducer
     });
 
 const persistConfig = {

@@ -12,7 +12,6 @@ import {getPopularMovies} from "../../redux/action/moviesAction";
 const SwiperComponents = () => {
     const dispatch = useDispatch()
     const popularMovies = useSelector(state => state.moviesReducer.popularMovies)
-
     useEffect(() => {
         dispatch(getPopularMovies())
     },[])

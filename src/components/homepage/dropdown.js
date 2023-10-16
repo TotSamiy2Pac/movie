@@ -1,17 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {getListGenres} from "../../redux/action/moviesAction";
 import {useDispatch, useSelector} from "react-redux";
+import {GET_GENRE, GET_RATING, GET_YEARS} from "../../redux/types/types";
+import {listDiscover} from "../../redux/action/discoverAction";
 
 
 const Dropdown = ({genres,rating,ears}) => {
     const dropdownRef = useRef(null);
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
-    const discover = useSelector(state => state.discoverReducer.discover)
-
-    useEffect(() => {
-        dispatch(getListGenres())
-    },[])
+    const discover = useSelector(state => state.discoverReducer)
 
     // Обработчик клика вне блока
     const handleClickOutside = (event) => {
@@ -33,13 +30,17 @@ const Dropdown = ({genres,rating,ears}) => {
         setIsOpen(!isOpen);
     };
 
+    // useEffect(() => {
+    //     dispatch(listDiscover(discover))
+    // },[discover])
+
     const handleOptionClick = (option, id) => {
         if (id === 1) {
-            dispatch({type: 'DISCOVER', payload: {...discover, genre: option}})
+            dispatch({type: GET_GENRE, payload: option})
         } else if (id===2) {
-            dispatch({type: 'DISCOVER', payload: {...discover, rating: typeof option === "number" ? option : 'Любой рейтинг'}})
+            dispatch({type: GET_RATING, payload: typeof option === "number" ? option : 'Любой рейтинг'})
         } else if (id===3) {
-            dispatch({type: 'DISCOVER', payload: {...discover, year: typeof option === "number" ? option : 'Все годы'}})
+            dispatch({type: GET_YEARS, payload: typeof option === "number" ? option : 'Все годы'})
         }
         setIsOpen(false);
     };

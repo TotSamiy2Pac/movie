@@ -1,4 +1,4 @@
-section h2 {
+.section h2 {
   font-size: 30px;
   line-height: 1.2;
   margin-bottom: 33px;
@@ -6,6 +6,12 @@ section h2 {
 }
 
 .section-header {
+  & h2{
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 33px 0;
+    color: white;
+  }
 
   & .__selection {
     //width: 100%;
@@ -39,7 +45,7 @@ section h2 {
         }
 
 
-        & .__choise, .__choise2, .__choise3 {
+        & .__choise{
           background-color: hsl(0deg 0% 37.65%);
         }
         //& .__choise2 {
