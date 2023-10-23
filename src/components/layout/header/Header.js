@@ -20,7 +20,7 @@ const Header = () => {
                 </Link>
                 <nav className={'__nav'}>
                     <Link to={''} className={'__link'}>СЕРИАЛЫ</Link>
-                    <Link to={''} className={'__link'}>ФИЛЬМЫ</Link>
+                    <Link to={'movies'} className={'__link'}>ФИЛЬМЫ</Link>
                     <Link to={''} className={'__link'}>ШОУ</Link>
                     <Link to={''} className={'__link'}>МУЛЬТФИЛЬМЫ</Link>
                     <Link to={''} className={'__link'}>ПОДБОРКИ</Link>
