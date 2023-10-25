@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from '../../assets/netflix.svg'
 import {Link} from "react-router-dom";
 import './style.scss'
@@ -8,12 +8,35 @@ import {useDispatch} from "react-redux";
 
 const Header = () => {
     const dispatch = useDispatch();
+    // const [headerStatus, setHeaderStatus] = useState(true);
+    // let scrollPositionTop = 0
+    // let a = 0
     const clearDiscover = () => {
         dispatch({type: 'CLEAR'})
     }
 
+
+
+    // useEffect(() => {
+    //     window.addEventListener("scroll", () => {
+    //         a = scrollPositionTop
+    //         scrollPositionTop = document.documentElement.scrollTop
+    //     })
+    // })
+    //
+    // console.log(headerStatus)
+
+
+
+    // useEffect(() => {
+    //     // scrollPositionTop = document.documentElement.scrollTop
+    //     console.log(document.documentElement.scrollTop)
+    // },[document.documentElement.scrollTop])
+
+
+
     return (
-        <header>
+        <header className={'header-sticky'}>
             <div className="wrapper">
                 <Link to={'/'} onClick={clearDiscover}>
                     <img src={logo} alt="logo-netflix-pet"/>

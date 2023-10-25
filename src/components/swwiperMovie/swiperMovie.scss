@@ -14,11 +14,12 @@
   }
   .imgMovie img {
     height: 100%;
+    border-radius: 10px;
   }
   .imgMovie {
+    height: 312px;
     //transform: scale(1);
     transition: .3s;
-    border-radius: 10px;
     overflow: hidden;
     position: relative;
     padding: 10px 0;
@@ -29,9 +30,15 @@
 
   .nameMovie {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 5px;
     color: #C3C3C3;
+
+    & a {
+      font-weight: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
   }
   .subscription {
     font-weight: 500;
@@ -96,4 +103,6 @@
     cursor: pointer;
   }
 }
+
+
 

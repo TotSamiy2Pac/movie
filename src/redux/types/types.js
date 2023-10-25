@@ -7,5 +7,11 @@ export const GET_YEARS = "GET_YEARS";
 export const ID_PRICE = "ID_PRICE";
 
 export const LIST_DISCOVER = "LIST_DISCOVER";
-
+export const LIST_POPULAR_TV = 'LIST_POPULAR_TV'
+export const LIST_POPULAR_ANIMATION = 'LIST_POPULAR_ANIMATION'
+export const LIST_TOP_RATED_MOVIE = 'LIST_TOP_RATED_MOVIE'
+export const LIST_NEW_MOVIES = 'LIST_NEW_MOVIES'
+export const MODAL_MOVIE = 'MODAL_MOVIE'
+export const MODAL_MOVIE_CLOSE = 'MODAL_MOVIE_CLOSE'
+export const GET_MOVIE = 'GET_MOVIE'
 

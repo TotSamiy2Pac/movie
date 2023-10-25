@@ -8,6 +8,7 @@ const App = () => {
         <Routes>
             <Route path={'/'} element={<HomePage/>}/>
             <Route path={'movies'} element={<MoviesPage/>} />
+            <Route path={'serials'} element={<MoviesPage/>} />
             <Route path={'/movies/:id'} element={<MoviePage/>}/>
             <Route path={'/films/:genre/:rating/:year'} element={<HomePage/>}/>
             <Route path={'/films/:rating'} element={<MoviePage/>}/>

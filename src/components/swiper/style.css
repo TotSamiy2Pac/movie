@@ -4,7 +4,9 @@
 
 .bigSwiper.mySwiper {
     height: 500px;
+    border-radius: 10px;
 }
+
 
 .bigSwiper .box-slide {
     height: 500px;

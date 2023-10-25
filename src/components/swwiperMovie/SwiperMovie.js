@@ -6,15 +6,26 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/free-mode';
 
 import './swiperMovie.scss'
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {MODAL_MOVIE} from "../../redux/types/types";
 
-const SwiperMovie = () => {
-
+const SwiperMovie = ({list, title, id}) => {
+    const dispatch = useDispatch();
     const handleFavorit = () => {
 
     }
 
+    const handleModalMovie = (movie) => {
+        // console.log(movie)
+        dispatch({type: MODAL_MOVIE, payload: movie})
+    }
+
     return (
         <>
+            <Link to={id === 1 ? 'movies' : id === 2 ? 'serials' : 'multfilms'}>
+                <h2 className={'title-swiper'}>{title}</h2>
+            </Link>
             <Swiper
                 slidesPerView={4.5}
                 spaceBetween={0}
@@ -27,215 +38,43 @@ const SwiperMovie = () => {
                 modules={[Navigation, Mousewheel, Scrollbar, FreeMode]}
                 className="mySwiper miniSwiper"
             >
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div
-                            className={'icon ratingIcon'}
-                        >
-                            7.8
-                        </div>
-                        <div
-                            className={'icon-btn'}
-                            onClick={handleFavorit}
-                        >
-                            <i className={'icon favoritIcon favoritIconFull'}></i>
-                        </div>
-                        <div
-                            className={'icon-btn'}
-                        >
-                            <i className={'icon fullMovieIcon'}></i>
-                        </div>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={'imgMovie'}>
-                        <img src={'https://picsum.photos/1920'} />
-                        <div className={'icon ratingIcon'}>
-                            7.8
-                        </div>
-                        <a href="#">
-                            <i className={'icon favoritIcon'}></i>
-                        </a>
-                        <a href="#">
-                            <i className={'icon fullMovieIcon'}></i>
-                        </a>
-                    </div>
-                    <div className={'nameMovie'}>
-                        <a className="">
-                            Film
-                        </a>
-                    </div>
-                    <div className={'subscription'}>Подписка</div>
-                </SwiperSlide>
-
-
+                {
+                    list.map(movie => {
+                        return(
+                            <SwiperSlide key={movie.id}>
+                                    <div className={'imgMovie'}>
+                                        <Link key={movie.id} to={`/movie/${movie.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`} alt=""/>
+                                        </Link>
+                                        <div
+                                            className={'icon ratingIcon'}
+                                            style={movie.vote_average < 6.5 ? {background: 'gray'} : null}
+                                        >
+                                            {movie.vote_average}
+                                        </div>
+                                        <div
+                                            className={'icon-btn'}
+                                            onClick={handleFavorit}
+                                        >
+                                            <i className={'icon favoritIcon favoritIconFull'}></i>
+                                        </div>
+                                        <div
+                                            className={'icon-btn'}
+                                            onClick={event => handleModalMovie(movie)}
+                                        >
+                                            <i className={'icon fullMovieIcon'}></i>
+                                        </div>
+                                    </div>
+                                <div className={'nameMovie'}>
+                                    <Link key={movie.id} to={`/movie/${movie.id}`}>
+                                        {movie.title || movie.name}
+                                    </Link>
+                                </div>
+                                <div className={'subscription'}>Подписка</div>
+                            </SwiperSlide>
+                        )
+                    })
+                }
             </Swiper>
         </>
     );

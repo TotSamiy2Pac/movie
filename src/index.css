@@ -20,6 +20,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 .wrapper {
   max-width: 1280px;
   margin: 0 auto;
@@ -29,6 +33,13 @@ input {
 }
 input:hover {
   outline: none;
+}
+
+.title-swiper{
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 20px 0 0 20px;
+  color: white;
 }
 
 
