@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {GET_GENRE, GET_RATING, GET_YEARS} from "../../redux/types/types";
-import {listDiscover} from "../../redux/action/discoverAction";
+import {GET_GENRE, GET_RATING, GET_YEARS, REFRESH_DISCOVER_LIST} from "../../redux/types/types";
 
+import './styleDropdon.scss'
 
-const Dropdown = ({genres,rating,ears}) => {
+const DropDown = ({genres,rating,ears}) => {
     const dropdownRef = useRef(null);
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
@@ -35,6 +35,7 @@ const Dropdown = ({genres,rating,ears}) => {
     // },[discover])
 
     const handleOptionClick = (option, id) => {
+        dispatch({type: REFRESH_DISCOVER_LIST})
         if (id === 1) {
             dispatch({type: GET_GENRE, payload: option})
         } else if (id===2) {
@@ -44,6 +45,7 @@ const Dropdown = ({genres,rating,ears}) => {
         }
         setIsOpen(false);
     };
+
 
     return (
         <>
@@ -57,7 +59,7 @@ const Dropdown = ({genres,rating,ears}) => {
                             <div
                                 key={rating}
                                 className="dropdown-item"
-                                onClick={() => handleOptionClick({id:0, name:'все жанры'}, 1)}
+                                onClick={() => handleOptionClick({id:'', name:'все жанры'}, 1)}
                             >
                                 Все жанры
                             </div>
@@ -155,4 +157,4 @@ const Dropdown = ({genres,rating,ears}) => {
     );
 };
 
-export default Dropdown;
+export default DropDown;

@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import './style.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {MODAL_MOVIE_CLOSE} from "../../redux/types/types";
 import {getMovie} from "../../redux/action/moviesAction";
-import playSVG from '../assets/play.svg'
-const ModalMovie = ({modalMovie}) => {
+import {Link} from "react-router-dom";
+const ModalMovie = memo(({modalMovie}) => {
     const dispatch = useDispatch()
     const isClose = useSelector(state => state.moviesReducer.isClose)
     const movie = useSelector(state => state.moviesReducer.movie)
@@ -17,7 +17,7 @@ const ModalMovie = ({modalMovie}) => {
     const handleCloseModalMovie = () => {
         dispatch({type:MODAL_MOVIE_CLOSE})
     }
-    console.log(movie)
+    // console.log(movie)
     return (
         <>
             {movie.id &&
@@ -54,34 +54,41 @@ const ModalMovie = ({modalMovie}) => {
                         </p>
                     </div>
                     <div className={'modalMovie-preview'}>
-                        <div
-                            className={'modalMovie-preview__rating-icon'}
-                            style={modalMovie.vote_average < 6.5 ? {backgroundColor: '#646464'} : null}
-                        >
-                            {modalMovie.vote_average}
-                        </div>
                         <div className={'modalMovie-preview__info'}>
-                            <div className={'modalMovie-preview__info-span'}>
-                                <span>{movie.release_date.slice(0,4)}</span>
-                                <span>{movie.genres[0].name}</span>
-                                <span>{movie.production_countries[0].name}</span>
+                            <div
+                                className={'modalMovie-preview__rating-icon'}
+                                style={modalMovie.vote_average < 6.5 ? {backgroundColor: '#646464'} : null}
+                            >
+                                {modalMovie.vote_average}
+                            </div>
+                            <div className={''}>
+                                <div className={'modalMovie-preview__info-span'}>
+                                    <span>{movie.release_date.slice(0,4)}</span>
+                                    <span>{movie.genres[0].name}</span>
+                                </div>
+                                <div className={'modalMovie-preview__info-span'}>
+                                    <span>{movie.production_countries[0].name}</span>
+                                </div>
                             </div>
                         </div>
-                        <div className={'modalMovie-preview__info-favorit-icon'}>
-                            <i className={'icon'}></i>
-                        </div>
-                        <div className={'modalMovie-preview__info-play-btn'}>
-                            <svg width="12" height="12" viewBox="0 0 18 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.154 11.793a1 1 0 010 1.614L2.071 24.43a1 1 0 01-1.59-.808V1.58A1 1 0 012.072.77l15.083 11.022z" fill="#fff"/>
-                            </svg>
-                            начать просмотр
+                        <div className={'modalMovie-preview__info modalMovie-preview__info-btn'}>
+                            <div className={'modalMovie-preview__info-favorit-icon'}>
+                                <i className={'icon'}></i>
+                            </div>
+                            <Link to={`/movies/${movie.id}`}>
+                                <button className={'modalMovie-preview__info-play-btn'}>
+                                    <svg width="12" height="12" viewBox="0 0 18 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.154 11.793a1 1 0 010 1.614L2.071 24.43a1 1 0 01-1.59-.808V1.58A1 1 0 012.072.77l15.083 11.022z" fill="#fff"/>
+                                    </svg>
+                                    начать просмотр
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             }
         </>
-
     );
-};
+});
 
 export default ModalMovie;

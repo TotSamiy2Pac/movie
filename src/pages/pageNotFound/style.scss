@@ -1,0 +1,27 @@
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  height: calc(100vh - 94px);
+
+  & h2 {
+    font-size: 25px;
+    color: white;
+  }
+  & .nutIcon {
+    animation: rotateNutIcon 5s linear infinite  ;
+  }
+}
+
+@keyframes rotateNutIcon {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import logo from '../../assets/netflix.svg'
 import {Link} from "react-router-dom";
 import './style.scss'
@@ -6,7 +6,7 @@ import {Button} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {useDispatch} from "react-redux";
 
-const Header = () => {
+const Header = memo(() => {
     const dispatch = useDispatch();
     // const [headerStatus, setHeaderStatus] = useState(true);
     // let scrollPositionTop = 0
@@ -42,12 +42,12 @@ const Header = () => {
                     <img src={logo} alt="logo-netflix-pet"/>
                 </Link>
                 <nav className={'__nav'}>
-                    <Link to={''} className={'__link'}>СЕРИАЛЫ</Link>
-                    <Link to={'movies'} className={'__link'}>ФИЛЬМЫ</Link>
-                    <Link to={''} className={'__link'}>ШОУ</Link>
+                    <Link to={'/404'} className={'__link'}>СЕРИАЛЫ</Link>
+                    <Link to={'/movies'} className={'__link'}>ФИЛЬМЫ</Link>
+                    <Link to={'/404'} className={'__link'}>ШОУ</Link>
                     <Link to={''} className={'__link'}>МУЛЬТФИЛЬМЫ</Link>
-                    <Link to={''} className={'__link'}>ПОДБОРКИ</Link>
-                    <Link to={''} className={'__link'}>ТВ</Link>
+                    <Link to={'/404'} className={'__link'}>ПОДБОРКИ</Link>
+                    <Link to={'/404'} className={'__link'}>ТВ</Link>
                 </nav>
                 <div className="__search-box">
                     <input
@@ -69,6 +69,6 @@ const Header = () => {
             </div>
         </header>
     );
-};
+});
 
 export default Header;

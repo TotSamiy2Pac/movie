@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,7 +9,7 @@ import './style.css'
 import {useDispatch, useSelector} from "react-redux";
 import {getPopularMovies} from "../../redux/action/moviesAction";
 
-const SwiperComponents = () => {
+const SwiperComponents = memo(() => {
     const dispatch = useDispatch()
     const popularMovies = useSelector(state => state.moviesReducer.popularMovies)
     useEffect(() => {
@@ -62,6 +62,6 @@ const SwiperComponents = () => {
 
         </>
     );
-};
+});
 
 export default SwiperComponents;

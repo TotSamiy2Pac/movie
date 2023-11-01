@@ -1,0 +1,50 @@
+/* Стилизация выпадающего контейнера */
+.dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  //display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.6s;
+  border-radius: 5px;
+}
+
+/* Стилизация кнопки/заголовка выпадающего списка */
+.dropdown-toggle {
+  padding: 10px;
+  //border: 1px solid #ccc;
+  //background-color: #fff;
+}
+
+/* Стилизация выпадающего контента */
+.dropdown-content {
+  height: 200px;
+  width: 200px;
+  overflow-y: scroll;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  background-color: #e6e6e6;
+}
+
+/* Стилизация опций */
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  background-color: hsl(0deg 0% 37.65%);
+}
+//.dropdown-item:hover {
+//  background: #494949;
+//}
+
+/* При наведении на выпадающий контейнер показываем его содержимое */
+.dropdown:hover, .dropdown-item:hover {
+  background: #494949;
+}
+.dropdown-click {
+  display: block;
+}
