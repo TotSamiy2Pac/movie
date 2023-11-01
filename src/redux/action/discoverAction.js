@@ -18,16 +18,12 @@ const options = {
 //     }
 // }
 
-export const listDiscover = (discover) => {
-
-    // console.log(discover.genre['id'], 'discover.genre.id')
-    // console.log(discover.year, 'discover.year')
-    // console.log(discover.rating, 'discover.rating')
+export const listDiscover = (discover, page) => {
     return (dispatch) => {
-        axios(`https://api.themoviedb.org/3/discover/movie?language=ru-RU&with_genres=${discover.genre['id']}&primary_release_year=${typeof discover.year === "number" ? discover.year : ''}&vote_average.gte=${typeof discover.rating === "number" ? discover.rating : ''}`, options)
+        axios(`https://api.themoviedb.org/3/discover/movie?page=${page}&language=ru-RU&with_genres=${discover.genre['id']}&primary_release_year=${typeof discover.year === "number" ? discover.year : ''}&vote_average.gte=${typeof discover.rating === "number" ? discover.rating : ''}`, options)
             .then(({data}) => {
                 // console.log(data)
-                dispatch({type:LIST_DISCOVER, payload: data.result})
+                dispatch({type:LIST_DISCOVER, payload: data.results})
             })
     }
 }

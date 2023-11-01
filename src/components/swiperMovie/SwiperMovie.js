@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Navigation, Mousewheel, Scrollbar, FreeMode} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/navigation';
@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {MODAL_MOVIE} from "../../redux/types/types";
 
-const SwiperMovie = ({list, title, id}) => {
+const SwiperMovie = memo(({list, title, id}) => {
     const dispatch = useDispatch();
     const handleFavorit = () => {
 
@@ -43,7 +43,7 @@ const SwiperMovie = ({list, title, id}) => {
                         return(
                             <SwiperSlide key={movie.id}>
                                     <div className={'imgMovie'}>
-                                        <Link key={movie.id} to={`/movie/${movie.id}`}>
+                                        <Link to={`/movie/${movie.id}`}>
                                             <img src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`} alt=""/>
                                         </Link>
                                         <div
@@ -78,6 +78,6 @@ const SwiperMovie = ({list, title, id}) => {
             </Swiper>
         </>
     );
-};
+});
 
 export default SwiperMovie;

@@ -14,4 +14,7 @@ export const LIST_NEW_MOVIES = 'LIST_NEW_MOVIES'
 export const MODAL_MOVIE = 'MODAL_MOVIE'
 export const MODAL_MOVIE_CLOSE = 'MODAL_MOVIE_CLOSE'
 export const GET_MOVIE = 'GET_MOVIE'
+export const PAGE = 'PAGE'
+export const REFRESH_DISCOVER_LIST = 'REFRESH_DISCOVER_LIST'
 
+export const GENRE_MOVIE_LIST = 'GENRE_MOVIE_LIST'

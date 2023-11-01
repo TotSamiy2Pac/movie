@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import Layout from "../../components/layout/Layout";
 import SwiperComponents from "../../components/swiper/SwiperComponents";
 import './style.scss'
 
-import SwiperMovie from "../../components/swwiperMovie/SwiperMovie";
+import SwiperMovie from "../../components/swiperMovie/SwiperMovie";
 import {useDispatch, useSelector} from "react-redux";
 import {getNewMovies, getPopularMultfilms, getPopularTv, getTopRatedMovie} from "../../redux/action/moviesAction";
-import ModalMovie from "../../components/modalMovie/modalMovie";
+import ModalMovie from "../../components/modalMovie/ModalMovie";
 
-const HomePage = () => {
+const HomePage = memo(() => {
     const dispatch = useDispatch();
     const popularMovies = useSelector(state => state.moviesReducer.popularMovies);
     const topRatedMovies = useSelector(state => state.moviesReducer.topRatedMovies);
@@ -33,13 +33,13 @@ const HomePage = () => {
                     <SwiperMovie list={newMovies} title={'Новинки'} id={1}/>
                     <SwiperMovie list={popularMovies} title={'Популярные фильмы'} id={1}/>
                     <SwiperMovie list={topRatedMovies} title={'Фильмы с высокми рейтингами'} id={1}/>
-                    <SwiperMovie list={popularTV} title={'Популярные сериалы'} id={2}/>
+                    {/*<SwiperMovie list={popularTV} title={'Популярные сериалы'} id={2}/>*/}
                     <SwiperMovie list={popularMultfilms} title={'Популярные мультфильмы'} id={3}/>
                 </div>
             </section>
             <ModalMovie modalMovie={modalMovie}/>
         </Layout>
     );
-};
+});
 
 export default HomePage;
