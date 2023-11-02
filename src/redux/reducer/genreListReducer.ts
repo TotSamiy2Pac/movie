@@ -1,5 +1,5 @@
-// import {GENRE_MOVIE_LIST} from "../types/types.js"
 
+import {actionType} from "../types/typesTS";
 
 export enum actionTypes {
     GENRE_MOVIE_LIST_SUCCESS = 'GENRE_MOVIE_LIST_SUCCESS',
@@ -21,11 +21,6 @@ interface GENRE_MOVIE_LIST_SUCCESS {
 
 export type genreAction = GENRE_MOVIE_LIST_SUCCESS | GENRE_MOVIE_LIST_ERROR | GENRE_MOVIE_LIST_LOADING
 
-export interface ListAction {
-    type: string;
-    payload: any[]
-}
-
 interface ListState {
     listGenreMovie : any[],
     loading: boolean,
@@ -38,7 +33,7 @@ const initialState: ListState = {
     error: null
 }
 
-export default function  genreListReducer (state = initialState, action:ListAction):ListState {
+export default function  genreListReducer (state = initialState, action:actionType):ListState {
     switch (action.type) {
         case actionTypes.GENRE_MOVIE_LIST_SUCCESS:
             return {loading:false, error: null,  listGenreMovie:action.payload}

@@ -6,9 +6,21 @@ import {
     LIST_TOP_RATED_MOVIE, MODAL_MOVIE, MODAL_MOVIE_CLOSE,
     SWIPER_MOVIES
 } from "../types/types";
+import {actionType} from "../types/typesTS";
 
+interface moviesState {
+    popularMovies:any[] ,
+    topRatedMovies: any[],
+    newMovies: any[],
+    genres: any[],
+    popularTV: any[],
+    popularMultfilms: any[],
+    modalMovie: any[],
+    movie: any[],
+    isClose: boolean,
+}
 
-const initialState = {
+const initialState:moviesState = {
     popularMovies: [],
     topRatedMovies: [],
     newMovies: [],
@@ -20,7 +32,7 @@ const initialState = {
     isClose: true,
 }
 
-export default function  moviesReducer (state = initialState, action) {
+export default function  moviesReducer (state = initialState, action:actionType) {
     switch (action.type) {
         case GET_MOVIES:
             return {...state, movies: action.payload}

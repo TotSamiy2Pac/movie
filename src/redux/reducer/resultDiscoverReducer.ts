@@ -1,11 +1,16 @@
 import {LIST_DISCOVER, REFRESH_DISCOVER_LIST} from "../types/types";
+import {actionType} from "../types/typesTS";
 
-const initialState = {
+
+interface resultDiscoverState {
+    resultDiscover: any[]
+}
+
+const initialState:resultDiscoverState = {
     resultDiscover: [],
 }
 
-export default function  resultDiscoverReducer (state = initialState, action) {
-
+export default function  resultDiscoverReducer (state = initialState, action:actionType):resultDiscoverState {
     switch (action.type) {
         case LIST_DISCOVER:
             // console.log(action.payload)
@@ -13,7 +18,7 @@ export default function  resultDiscoverReducer (state = initialState, action) {
         case REFRESH_DISCOVER_LIST:
             return {resultDiscover: []}
         case 'CLEAR':
-            return state = initialState
+            return initialState
         default:
             return state
     }

@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useLayoutEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import Layout from "../../components/layout/Layout";
 import {useDispatch, useSelector} from "react-redux";
 import {getListGenres} from "../../redux/action/moviesAction";
@@ -10,7 +10,6 @@ import './style.scss'
 import ModalMovie from "../../components/modalMovie/ModalMovie";
 import Discover from "../../components/discover/Discover";
 import DiscoverResult from "../../components/discover/DiscoverResult";
-import ListMovieByGenres from "../../components/listMovieByGenres/ListMovieByGenres";
 
 const MoviesPage = memo(() => {
     const genres = useSelector(state => state.moviesReducer.genres);
@@ -32,14 +31,14 @@ const MoviesPage = memo(() => {
             <ModalMovie modalMovie={modalMovie}/>
             <SwiperComponents/>
             <Discover/>
-            <DiscoverResult/>
-            {/*<ListMovieByGenres genre={genres}/>*/}
+            <DiscoverResult discover={discover}/>
+            {/*<ListMovieByGenres/>*/}
             {
-                genres.map(genre => {
-                    return (
-                        <ListMovieByGenres genre={genre} key={genre.id} />
-                    )
-                })
+                // genres.map(genre => {
+                //     return (
+                //         <ListMovieByGenres genre={genre} key={genre.id} />
+                //     )
+                // })
             }
         </Layout>
     );
