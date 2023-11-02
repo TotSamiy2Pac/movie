@@ -37,15 +37,15 @@ const DropDown = ({genres,rating,ears}) => {
     const handleOptionClick = (option, id) => {
         dispatch({type: REFRESH_DISCOVER_LIST})
         if (id === 1) {
-            dispatch({type: GET_GENRE, payload: option})
+            // console.log(option)
+            dispatch({type: GET_GENRE, payload: {genre: option}})
         } else if (id===2) {
-            dispatch({type: GET_RATING, payload: typeof option === "number" ? option : 'Любой рейтинг'})
+            dispatch({type: GET_RATING, payload: typeof option === "number" ? {rating: option} : 'Любой рейтинг'})
         } else if (id===3) {
-            dispatch({type: GET_YEARS, payload: typeof option === "number" ? option : 'Все годы'})
+            dispatch({type: GET_YEARS, payload: typeof option === "number" ? {years: option} : 'Все годы'})
         }
         setIsOpen(false);
     };
-
 
     return (
         <>

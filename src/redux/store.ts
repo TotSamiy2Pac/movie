@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import thunk, {ThunkDispatch} from "redux-thunk";
 import moviesReducer from "./reducer/moviesReducer";
 import discoverReducer from "./reducer/discoverReducer";
 import { persistStore, persistReducer } from 'redux-persist'
@@ -34,6 +34,13 @@ const store = createStore(
 
 export default store;
 export const persistor = persistStore(store)
+
+
+
+export type RootState = ReturnType<typeof rootReducer>
+// type RootState = ReturnType<typeof rootReducer>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
 
 
 

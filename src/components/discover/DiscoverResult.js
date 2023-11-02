@@ -1,24 +1,24 @@
 import React, {memo, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {MODAL_MOVIE, PAGE, REFRESH_DISCOVER_LIST} from "../../redux/types/types";
+import {MODAL_MOVIE} from "../../redux/types/types";
 import {listDiscover} from "../../redux/action/discoverAction";
 
 
 
 let page = 1
 
-const DiscoverResult = memo(() => {
+const DiscoverResult = memo(({discover}) => {
     const resultDiscover = useSelector(state => state.resultDiscoverReducer.resultDiscover)
-    const discover = useSelector(state => state.discoverReducer)
+    // const discover = useSelector(state => state.discoverReducer)
     const dispatch = useDispatch();
-
 
 
     const handleModalMovie = (movie) => {
         // console.log(movie)
         dispatch({type: MODAL_MOVIE, payload: movie})
     }
+
     useEffect(() => {
         page = 1
     }, [])
