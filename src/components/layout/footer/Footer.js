@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-const Footer = () => {
+const Footer = memo(() => {
     return (
         <footer>
 
         </footer>
     );
-};
+});
 
 export default Footer;

@@ -2,6 +2,9 @@ import axios, {AxiosResponse} from "axios";
 import {actionTypes, genreAction} from '../reducer/genreListReducer'
 import {Dispatch} from "redux";
 
+export type getListFunc = (id: number) => void
+
+
 export const getListGenre: any = (id: number) => {
     return async (dispatch: Dispatch<genreAction>) => {
         try {
