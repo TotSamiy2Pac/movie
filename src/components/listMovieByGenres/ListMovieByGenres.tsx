@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
-import {getListGenre} from "../../redux/action/genreAction";
+import {getListFunc, getListGenre} from "../../redux/action/genreAction";
 import {genreAction} from "../../redux/reducer/genreListReducer";
 import {Dispatch} from "redux";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../redux/store";
 interface List  {
     // genres: [],
     genre : {
@@ -14,7 +16,7 @@ interface List  {
 const ListMovieByGenres:React.FC<List> = ({genre}) => {
     const {listGenreMovie, loading, error} = useAppSelector(state => state.genreListReducer)
     // const dispatch = useAppDispatch()
-    const dispatch:Dispatch<genreAction> = useAppDispatch()
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getListGenre(28))
     },[])

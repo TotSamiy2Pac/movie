@@ -28,7 +28,6 @@ const DiscoverResult = memo(({discover}) => {
         page += 1
         dispatch(listDiscover(discover,page))
     }
-
     // dispatch({type:'CLEAR'})
     // console.log(discover.page)
     return (

@@ -1,4 +1,4 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useEffect, useMemo, useState} from 'react';
 import Layout from "../../components/layout/Layout";
 import {useDispatch, useSelector} from "react-redux";
 import {getListGenres} from "../../redux/action/moviesAction";
@@ -19,12 +19,23 @@ const MoviesPage = memo(() => {
 
     useEffect(() => {
         dispatch(getListGenres())
+        console.log('id render')
     },[genres.id])
+
 
     useEffect(() => {
         dispatch(listDiscover(discover))
+        // console.log('render')
     },[discover])
 
+
+    // console.log('aaa')
+
+    // useEffect(() => {
+    //     console.log('render')
+    // },[discover])
+
+    console.log(discover)
 
     return (
         <Layout>
